@@ -2,9 +2,9 @@
 
 namespace App\Controllers\Home;
 
-use App\Models\User;
+use App\Controllers\Controllers;
 
-class HomeController
+class HomeController extends Controllers
 {
     public function index()
     {
