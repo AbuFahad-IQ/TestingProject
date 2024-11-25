@@ -10,4 +10,9 @@ class HomeController extends Controllers
     {
         view('home.index');
     }
+
+    public function show($id)
+    {
+        dump($id);
+    }
 }
