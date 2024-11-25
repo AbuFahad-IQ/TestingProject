@@ -2,18 +2,10 @@
 
 namespace Src\Http\Route;
 
-use Src\Http\Request\Request;
 use Src\Http\Partials\RouteStorage;
 
 class RouteCreate extends RouteStorage
 {
-    protected Request $request;
-    public function __construct()
-    {
-        $this->request = new Request();
-    }
-
-
     public static function create($method, $route, $callback, $routeName = null)
     {
         $instance = new self();
