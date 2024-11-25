@@ -10,7 +10,7 @@ class RouteValidation
     }
 
 
-    protected static function isValidCallback(string|array|callable $callback): bool
+    protected static function isValidCallback(mixed $callback)
     {
         return !empty($callback) && is_string($callback) || is_array($callback) || is_callable($callback);
     }

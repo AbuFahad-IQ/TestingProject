@@ -6,7 +6,7 @@ use App\View\ViewError;
 
 class RouteHandler
 {
-    public static function handleStringAction($action, $params = []): void
+    public static function handleStringAction(string $action, array $params = []): void
     {
         if (str_contains($action, '@')) {
             [$class, $method] = explode('@', $action);
@@ -14,12 +14,12 @@ class RouteHandler
         }
     }
 
-    public static function handleArrayAction($action, $params = []): void
+    public static function handleArrayAction(array $action, array $params = []): void
     {
         static::handleClassMethod($action[0], $action[1], $params);
     }
 
-    public static function handleCallableAction($action, $params = []): void
+    public static function handleCallableAction(callable $action, array $params = []): void
     {
         $reflection = new \ReflectionFunction($action);
 

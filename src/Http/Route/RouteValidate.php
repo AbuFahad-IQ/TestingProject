@@ -7,7 +7,7 @@ use Src\Http\Route\RouteValidation;
 
 class RouteValidate extends RouteValidation
 {
-    public static function validate($method, $route, $callback): bool
+    public static function validate(string $method, string $route, mixed $callback): bool
     {
         try {
             if (! static::isValidMethod($method) || ! static::isValidRoute($route) || ! static::isValidCallback($callback)) {

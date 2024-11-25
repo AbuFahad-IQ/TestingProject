@@ -35,7 +35,7 @@ class RouteResolved extends RouteHttp
             is_string($action) => RouteHandler::handleStringAction($action, $params),
             is_array($action) => RouteHandler::handleArrayAction($action, $params),
             is_callable($action) => RouteHandler::handleCallableAction($action, $params),
-            default => false
+            default => false,
         };
     }
 }

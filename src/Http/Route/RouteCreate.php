@@ -6,13 +6,13 @@ use Src\Http\Partials\RouteStorage;
 
 class RouteCreate extends RouteStorage
 {
-    public static function create($method, $route, $callback, $routeName = null)
+    public static function create(string $method, string $route, mixed $callback, string $routeName = null)
     {
         return self::storeRoute($method, $route, $callback, $routeName);
     }
 
 
-    private static function storeRoute($method, $route, $callback, $routeName = null)
+    private static function storeRoute(string $method, string $route, mixed $callback, string $routeName = null)
     {
         if (!RouteValidate::validate($method, $route, $callback)) {
             exit;
