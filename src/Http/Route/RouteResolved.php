@@ -21,14 +21,15 @@ class RouteResolved extends RouteHttp
     {
         $path = $this->request->path();
         $method = $this->request->method();
-        $matchRoute = RouteCreate::matchRoute($method, $path);
+        $matchedRoute = RouteCreate::matchRoute($method, $path);
 
-        if (!$matchRoute) {
+        if (!$matchedRoute) {
             ViewError::error('404');
+            exit;
         }
 
-        $action = $matchRoute['callback'];
-        $params = $matchRoute['params'];
+        $action = $matchedRoute['callback'];
+        $params = $matchedRoute['params'];
 
         match (true) {
             is_string($action) => RouteHandler::handleStringAction($action, $params),

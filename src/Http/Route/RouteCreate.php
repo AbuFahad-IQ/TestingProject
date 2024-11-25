@@ -8,12 +8,11 @@ class RouteCreate extends RouteStorage
 {
     public static function create($method, $route, $callback, $routeName = null)
     {
-        $instance = new self();
-        return $instance->handle($method, $route, $callback, $routeName);
+        return self::storeRoute($method, $route, $callback, $routeName);
     }
 
 
-    private function handle($method, $route, $callback, $routeName = null)
+    private static function storeRoute($method, $route, $callback, $routeName = null)
     {
         if (!RouteValidate::validate($method, $route, $callback)) {
             exit;
